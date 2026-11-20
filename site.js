@@ -32,9 +32,9 @@
       const mapped = items.map(cleanProduct).filter(Boolean);
       if (items.length > 0 && !mapped.length && items.some(p => p && p.published !== false)) throw Error('Invalid product data');
       products = mapped;
-      bag = bag.filter(item => {const product = findProduct(item.id);return product && product.available !== false;});
-      try { localStorage.setItem('uf-fashion-enquiry-bag', JSON.stringify(bag)); } catch (_) {}
     } catch (err) { console.warn('Using original UF catalogue until the product data is available:', err); }
+    bag = bag.filter(item => {const product = findProduct(item.id);return product && product.available !== false;});
+    try { localStorage.setItem('uf-fashion-enquiry-bag', JSON.stringify(bag)); } catch (_) {}
   }
   const config = window.UF_CONFIG || {};
   const $ = (id) => document.getElementById(id);
@@ -48,7 +48,7 @@
   let bag = [];
   try {
     const saved = JSON.parse(localStorage.getItem('uf-fashion-enquiry-bag') || '[]');
-    if (Array.isArray(saved)) bag = saved.filter(x => findProduct(x.id) && Number.isInteger(x.quantity) && x.quantity > 0 && x.quantity <= 99);
+    if (Array.isArray(saved)) bag = saved.filter(x => x && typeof x.id === 'string' && Number.isInteger(x.quantity) && x.quantity > 0 && x.quantity <= 99);
   } catch (_) { bag = []; }
   let toastTimer;
   let activeProduct = null;
