@@ -176,6 +176,14 @@
       filters.appendChild(button);
     });
     cards();renderBag();initContact();
+    // Keep category pictures in sync when the owner removes or hides products.
+    document.querySelectorAll('[data-category-link]').forEach(link => {
+      const category = link.dataset.categoryLink;
+      const product = products.find(p => p.category === category && p.available !== false) || products.find(p => p.category === category);
+      if (!product) { link.hidden = true; link.style.display = 'none'; return; }
+      const image = link.querySelector('img');
+      if (image) { image.src = product.images.product; image.alt = `${product.name} — ${category}`; }
+    });
     document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>filterTo(b.dataset.filter)));
     document.querySelectorAll('[data-category-link]').forEach(a=>a.addEventListener('click',()=>filterTo(a.dataset.categoryLink)));
     $('search-open').addEventListener('click',()=>{const p=$('search-panel');p.hidden=!p.hidden;if(!p.hidden){$('search-input').focus();document.querySelector('#shop').scrollIntoView({behavior:'smooth'});}else{$('search-input').value='';query='';cards();}});
