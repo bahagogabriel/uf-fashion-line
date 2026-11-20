@@ -22,6 +22,12 @@ content:
         type: string
         readonly: true
         description: Existing product identifiers are protected. New products get a generated ID on the storefront.
+      - name: uid
+        label: Automatic Product ID
+        type: uuid
+        options:
+          editable: false
+        description: Created automatically for new products. No need to edit.
       - name: name
         label: Product Name
         type: string
