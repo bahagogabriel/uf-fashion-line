@@ -13,3 +13,11 @@
 .concept-notice{max-width:1050px;background:#e4ded3;padding:17px 19px;border-radius:10px}
 @media(max-width:950px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:275px}}
 @media(max-width:480px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:198px}.category-info strong{font-size:22px}.product-card-image{height:400px}}
+
+/* Keep the UF logo and navigation readable on dark-mode browsers. */
+@media (prefers-color-scheme: dark) {
+  .site-header { background: rgba(29, 28, 26, .98); color: #fff7ec; border-bottom-color: rgba(255, 255, 255, .10); }
+  .brand-link img { content: url('assets/brand/logo-light.svg'); }
+  .icon-btn, .bag-btn { color: #fff7ec; }
+  .menu-btn span { background: #fff7ec; }
+}
