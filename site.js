@@ -14,7 +14,8 @@
     const mainImage = localImagePath(item.image);
     if (!name || !['Jerseys','Shorts','Slides','Clogs'].includes(category) || !Number.isFinite(price) || price < 0 || !mainImage) return null;
     const slug = name.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,45);
-    const id = /^[a-zA-Z0-9_-]{1,80}$/.test(item.id || '') ? item.id : `new-${slug || 'product'}-${index + 1}`;
+    const preferredId = item.id || item.uid || '';
+    const id = /^[a-zA-Z0-9_-]{1,80}$/.test(preferredId) ? preferredId : `new-${slug || 'product'}-${index + 1}`;
     const gallery = Array.isArray(item.gallery) ? item.gallery.map(localImagePath).filter(Boolean).slice(0,8) : [];
     const modelImage = localImagePath(item.modelImage);
     return { id, name, category, price, description: String(item.description || ''),
