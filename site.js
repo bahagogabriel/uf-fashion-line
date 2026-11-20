@@ -1,6 +1,41 @@
 (() => {
   'use strict';
-  const products = window.UF_PRODUCTS || [];
+  let products = window.UF_PRODUCTS || [];
+  // Pages CMS saves the public catalogue as JSON; catalog.js stays as a fallback.
+  function localImagePath(value) {
+    const path = String(value || '').trim().replace(/^\/+/, '');
+    return /^assets\/products\/[a-zA-Z0-9._/-]+\.(?:png|jpe?g|webp)$/i.test(path) && !path.includes('..') ? path : '';
+  }
+  function cleanProduct(item, index) {
+    if (!item || typeof item !== 'object' || item.published === false) return null;
+    const name = String(item.name || '').trim();
+    const category = String(item.category || '').trim();
+    const price = Number(item.price);
+    const mainImage = localImagePath(item.image);
+    if (!name || !['Jerseys','Shorts','Slides','Clogs'].includes(category) || !Number.isFinite(price) || price < 0 || !mainImage) return null;
+    const slug = name.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,45);
+    const id = /^[a-zA-Z0-9_-]{1,80}$/.test(item.id || '') ? item.id : `new-${slug || 'product'}-${index + 1}`;
+    const gallery = Array.isArray(item.gallery) ? item.gallery.map(localImagePath).filter(Boolean).slice(0,8) : [];
+    const modelImage = localImagePath(item.modelImage);
+    return { id, name, category, price, description: String(item.description || ''),
+      sizes: Array.isArray(item.sizes) ? item.sizes.map(v => String(v).trim()).filter(Boolean) : [],
+      listingColor: String(item.listingColor || ''), tag: String(item.tag || category),
+      available: item.available !== false, concept: false, modelConcept: true,
+      images: { product: mainImage, ...(gallery.length ? { gallery } : {}), ...(modelImage ? { model: modelImage } : {}) } };
+  }
+  async function loadCatalogue() {
+    try {
+      const response = await fetch('data/products.json', {cache:'no-store'});
+      if (!response.ok) throw Error(`Catalogue HTTP ${response.status}`);
+      const items = await response.json();
+      if (!Array.isArray(items)) throw Error('Product file is not a list');
+      const mapped = items.map(cleanProduct).filter(Boolean);
+      if (items.length > 0 && !mapped.length && items.some(p => p && p.published !== false)) throw Error('Invalid product data');
+      products = mapped;
+      bag = bag.filter(item => {const product = findProduct(item.id);return product && product.available !== false;});
+      try { localStorage.setItem('uf-fashion-enquiry-bag', JSON.stringify(bag)); } catch (_) {}
+    } catch (err) { console.warn('Using original UF catalogue until the product data is available:', err); }
+  }
   const config = window.UF_CONFIG || {};
   const $ = (id) => document.getElementById(id);
   const escapeHTML = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -30,7 +65,7 @@
     renderBag();
   }
   function addToBag(id) {
-    const p = findProduct(id); if (!p) return;
+    const p = findProduct(id); if (!p || p.available === false) return;
     const entry = bag.find(x => x.id === id);
     if (entry) entry.quantity = Math.min(entry.quantity + 1, 99);
     else bag.push({id,quantity:1});
@@ -53,7 +88,7 @@
   function cards() {
     const matching = products.filter(p => (selected === 'All' || p.category === selected) && (`${p.name} ${p.category} ${p.description}`).toLowerCase().includes(query));
     $('results-count').textContent = `${matching.length} ${matching.length === 1 ? 'item' : 'items'}`;
-    $('product-grid').innerHTML = matching.length ? matching.map(p => `<article class="product-card"><button class="product-card-image" type="button" data-open="${escapeHTML(p.id)}" aria-label="View ${escapeHTML(p.name)} details"><img src="${escapeHTML(p.images.product)}" alt="${p.concept ? 'Illustrative item' : 'Product photo'}: ${escapeHTML(p.name)}" loading="lazy"/><span class="pill ${p.concept ? 'concept' : ''}">${p.concept ? 'CONCEPT LOOK' : 'PRODUCT'}</span><span class="photo-counter">${(p.images.gallery || []).length ? `${1 + p.images.gallery.length} PHOTOS` : 'PHOTO'}${p.images.model ? ' + STYLED' : ''}</span></button><div class="product-card-info"><p class="product-card-tag">${escapeHTML(p.tag || p.category)}</p><div class="product-card-title"><h3>${escapeHTML(p.name)}</h3><span class="price">${formatPrice(p.price)}</span></div><div class="product-card-cta"><span>${escapeHTML(p.category)}</span><button type="button" data-open="${escapeHTML(p.id)}">View details ↗</button></div></div></article>`).join('') : `<p style="grid-column:1/-1;padding:60px 0;text-align:center;color:#716b65">No products match that search. Try another category or search term.</p>`;
+    $('product-grid').innerHTML = matching.length ? matching.map(p => `<article class="product-card"><button class="product-card-image" type="button" data-open="${escapeHTML(p.id)}" aria-label="View ${escapeHTML(p.name)} details"><img src="${escapeHTML(p.images.product)}" alt="${p.concept ? 'Illustrative item' : 'Product photo'}: ${escapeHTML(p.name)}" loading="lazy"/><span class="pill ${p.available === false ? 'sold-out' : (p.concept ? 'concept' : '')}">${p.available === false ? 'SOLD OUT' : (p.concept ? 'CONCEPT LOOK' : 'PRODUCT')}</span><span class="photo-counter">${(p.images.gallery || []).length ? `${1 + p.images.gallery.length} PHOTOS` : 'PHOTO'}${p.images.model ? ' + STYLED' : ''}</span></button><div class="product-card-info"><p class="product-card-tag">${escapeHTML(p.tag || p.category)}</p><div class="product-card-title"><h3>${escapeHTML(p.name)}</h3><span class="price">${formatPrice(p.price)}</span></div><div class="product-card-cta"><span>${escapeHTML(p.category)}</span><button type="button" data-open="${escapeHTML(p.id)}">View details ↗</button></div></div></article>`).join('') : `<p style="grid-column:1/-1;padding:60px 0;text-align:center;color:#716b65">No products match that search. Try another category or search term.</p>`;
   }
   function filterTo(category) {
     selected = category;
@@ -77,7 +112,7 @@
     const styledTab = product.images.model ? `<button type="button" data-view="model" aria-pressed="false"><img src="${escapeHTML(product.images.model)}" alt=""/> Styled view${product.modelConcept !== false ? ' (concept)' : ''}</button>` : '';
     const conceptMessage = product.concept ? `<p class="dialog-concept"><strong>Concept imagery:</strong> This is an illustration, not an authenticated photo of an item in UF Fashion Line's stock.</p>` : (product.images.model && product.modelConcept !== false ? `<p class="dialog-concept"><strong>Styling illustration:</strong> The product view is a merchandise photograph; the model view is an AI styling concept and may differ from the real item.</p>` : '');
     const sizes = product.sizes && product.sizes.length ? escapeHTML(product.sizes.join(', ')) + ' (as listed)' : 'Confirm options with UF Fashion Line';
-    $('product-dialog-body').innerHTML = `<div class="dialog-gallery"><img id="dialog-main" class="dialog-main-image" src="${escapeHTML(product.images.product)}" alt="${product.concept ? 'Illustrative item' : 'Product photo'}: ${escapeHTML(product.name)}"/><div class="dialog-tabs" role="group" aria-label="Switch product images"><button type="button" class="is-active" data-view="product" aria-pressed="true"><img src="${escapeHTML(product.images.product)}" alt=""/> Item photo</button>${extraTabs}${styledTab}</div></div><div class="dialog-content"><p class="eyebrow"><span class="line"></span> ${escapeHTML(product.category)} / ${escapeHTML(product.tag || 'PRODUCTS')}</p><h2>${escapeHTML(product.name)}</h2><p class="dialog-price">${formatPrice(product.price)}</p><p class="dialog-description">${escapeHTML(product.description || '')}</p><p class="dialog-size">Sizes & availability <small>${sizes}. Please confirm stock and final price before purchase.</small></p>${conceptMessage}<button id="dialog-add" class="btn btn-orange" type="button">Add to Cart <span>↗</span></button></div>`;
+    $('product-dialog-body').innerHTML = `<div class="dialog-gallery"><img id="dialog-main" class="dialog-main-image" src="${escapeHTML(product.images.product)}" alt="${product.concept ? 'Illustrative item' : 'Product photo'}: ${escapeHTML(product.name)}"/><div class="dialog-tabs" role="group" aria-label="Switch product images"><button type="button" class="is-active" data-view="product" aria-pressed="true"><img src="${escapeHTML(product.images.product)}" alt=""/> Item photo</button>${extraTabs}${styledTab}</div></div><div class="dialog-content"><p class="eyebrow"><span class="line"></span> ${escapeHTML(product.category)} / ${escapeHTML(product.tag || 'PRODUCTS')}</p><h2>${escapeHTML(product.name)}</h2><p class="dialog-price">${formatPrice(product.price)}</p><p class="dialog-description">${escapeHTML(product.description || '')}</p><p class="dialog-size">Sizes & availability <small>${sizes}. Please confirm stock and final price before purchase.</small></p>${conceptMessage}${product.available === false ? '<p class="stock-status" role="status">Currently sold out</p>' : ''}<button id="dialog-add" class="btn btn-orange" type="button" ${product.available === false ? 'disabled aria-disabled="true"' : ''}>${product.available === false ? 'Sold Out' : 'Add to Cart'} <span>↗</span></button></div>`;
     $('dialog-add').addEventListener('click',() => {addToBag(id);$('product-dialog').close();openDrawer();});
     $('product-dialog').showModal();
     document.body.classList.add('no-scroll');
@@ -118,13 +153,14 @@
     });
     if (/^https:\/\//.test(config.instagramUrl || '')) { $('instagram-link').href = config.instagramUrl; $('instagram-link').textContent = 'Instagram ↗'; $('instagram-link').target='_blank'; $('instagram-link').rel='noopener noreferrer'; }
   }
-  function init() {
+  async function init() {
+    await loadCatalogue();
     $('year').textContent = new Date().getFullYear();
     const verified = products.filter(p => !p.concept);
     const intro = $('shop-intro');
     const notice = $('concept-notice');
     if (verified.length && verified.length === products.length) {
-      if (intro) intro.textContent = 'Browse 22 products with real photos and listed prices. Send your cart on WhatsApp to confirm stock, prices and sizes.';
+      if (intro) intro.textContent = `Browse ${products.length} products with photos and listed prices. Add to cart and confirm stock on WhatsApp.`;
       if (notice) notice.hidden = false;
     } else if (verified.length) {
       if (intro) intro.textContent = 'Shop real products alongside clearly labelled styling concepts.';
