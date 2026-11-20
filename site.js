@@ -108,7 +108,7 @@
     else window.prompt('Copy this enquiry message:',text);
   }
   function initContact() {
-    $('contact-hint').textContent = hasWhatsApp ? 'Ask about stock, prices and sizes directly on WhatsApp.' : 'WhatsApp contact will be activated once the verified business number is added.';
+    $('contact-hint').textContent = hasWhatsApp ? `WhatsApp: ${config.whatsappDisplay || '+'+safePhone}. Ask about stock, prices and sizes.` : 'WhatsApp contact will be activated once the verified business number is added.';
     if (hasWhatsApp) $('contact-action').innerHTML = 'Message on WhatsApp <span>↗</span>';
     $('contact-action').addEventListener('click',async()=>{
       if (hasWhatsApp) {window.open(`https://wa.me/${safePhone}?text=${encodeURIComponent('Hello UF Fashion Line, I would like to enquire about your current collection.')}`,'_blank','noopener,noreferrer');return;}
