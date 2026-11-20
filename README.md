@@ -8,7 +8,7 @@ A lightweight static storefront for a Nigerian fashion retailer, built from 22 p
 - `assets/products/item-01.webp` … `item-22.webp`: crops of the photos visible in the merchant-supplied screenshots. Low-resolution first-release imagery; originals can be replaced later.
 - `assets/images/`: clearly illustrative campaign visuals (NOT exact items from the screenshot catalogue).
 - `assets/brand/`: UF brand logo SVGs.
-- `site.config.js`: business WhatsApp number (currently unconfigured; enquiry is copied to clipboard instead).
+- `site.config.js`: verified business WhatsApp number (+234 813 214 6287); enquiry opens WhatsApp with a prefilled order request.
 
 ## IMPORTANT
 Product names, prices and sizes are quoted from the original merchant listings and were not independently checked. Do not treat branded names, words like 'Original', or photographs as proof of authenticity. Please verify stock, legitimacy, sizes, prices and permission to use the photos before a paid transaction. No secure checkout is claimed or implemented.
@@ -18,7 +18,7 @@ Product names, prices and sizes are quoted from the original merchant listings a
 2. Authorize GitHub and choose `bahagogabriel/uf-fashion-line`, branch `main`.
 3. Select framework **None** / no framework. **Build command:** none (leave empty). **Build output:** `/` (repository root). Project name `uf-fashion-line` if available; Cloudflare may offer another slug.
 4. Deploy, then use the assigned `*.pages.dev` URL. GitHub commits to `main` redeploy automatically.
-5. Do not announce WhatsApp ordering until the owner supplies a verified business number.
+5. WhatsApp enquiries use the seller-verified number (+234 813 214 6287). Confirm stock, prices, sizes and delivery with the seller before collecting payments.
 
 ## Update catalogue
 Edit `catalog.js` and add/update images in `assets/products/`; or use the optional `tools/import_catalog.py` with a CSV. Pricing is numeric NGN.
