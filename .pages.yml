@@ -1,0 +1,86 @@
+# UF Fashion Line — product editor (Pages CMS)
+# Sign in to https://app.pagescms.org with a GitHub account that has write
+# access to bahagogabriel/uf-fashion-line. This file controls the editor.
+media:
+  - name: products
+    label: Product Photos
+    input: assets/products
+    output: /assets/products
+    rename: random
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: products
+    label: Products — UF Fashion Line
+    type: file
+    path: data/products.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Internal ID (leave blank for new products)
+        type: string
+        readonly: true
+        description: Existing product identifiers are protected. New products get a generated ID on the storefront.
+      - name: name
+        label: Product Name
+        type: string
+        required: true
+        description: Name shown to customers, for example Sports Shorts.
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values: [Jerseys, Shorts, Slides, Clogs]
+      - name: price
+        label: Price (NGN — numbers only)
+        type: number
+        required: true
+        options:
+          min: 0
+        description: Enter 7500, not ₦7,500.
+      - name: image
+        label: Main Product Photo
+        type: image
+        required: true
+        options:
+          media: products
+          extensions: [jpg, jpeg, png, webp]
+      - name: gallery
+        label: More Product Photos (optional)
+        type: image
+        options:
+          media: products
+          multiple:
+            max: 8
+          unique: true
+      - name: modelImage
+        label: Styled-on-Model Concept Photo (optional)
+        type: image
+        options:
+          media: products
+        description: AI-generated pictures are marked as styling concepts on the website.
+      - name: sizes
+        label: Available Sizes
+        type: string
+        list: true
+        description: Add sizes one by one, for example 42 or XL.
+      - name: listingColor
+        label: Colour (optional)
+        type: string
+      - name: description
+        label: Product Description
+        type: text
+        description: Keep details accurate; avoid unverified authenticity claims.
+      - name: available
+        label: In Stock? (switch off to show Sold Out)
+        type: boolean
+        default: true
+      - name: published
+        label: Show on Website? (switch off to hide)
+        type: boolean
+        default: true
+      - name: tag
+        label: Small Catalogue Label (optional)
+        type: string
