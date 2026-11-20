@@ -21,3 +21,8 @@
   .icon-btn, .bag-btn { color: #fff7ec; }
   .menu-btn span { background: #fff7ec; }
 }
+
+/* Product manager: stock badges and unavailable-item messaging. */
+.pill.sold-out { background: #252321; color: #fff; }
+.stock-status { margin: 18px 0 2px; color: #a83825; font-weight: 800; }
+.dialog-content .btn:disabled { opacity: .55; cursor: not-allowed; filter: grayscale(.3); }
