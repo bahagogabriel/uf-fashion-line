@@ -14,7 +14,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed sizes: 41, 45. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 01"
+    "tag": "CATALOGUE / 01",
+    "modelImage": "/assets/products/on-model-uf-01.webp"
   },
   {
     "id": "uf-02",
@@ -30,7 +31,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 45. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 02"
+    "tag": "CATALOGUE / 02",
+    "modelImage": "/assets/products/on-model-uf-02.webp"
   },
   {
     "id": "uf-03",
@@ -46,7 +48,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 45. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 03"
+    "tag": "CATALOGUE / 03",
+    "modelImage": "/assets/products/on-model-uf-03.webp"
   },
   {
     "id": "uf-04",
@@ -78,7 +81,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 42. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 05"
+    "tag": "CATALOGUE / 05",
+    "modelImage": "/assets/products/on-model-uf-05.webp"
   },
   {
     "id": "uf-06",
@@ -94,7 +98,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black and white. Listed size: 41. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 06"
+    "tag": "CATALOGUE / 06",
+    "modelImage": "/assets/products/on-model-uf-06.webp"
   },
   {
     "id": "uf-07",
@@ -110,7 +115,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 2XL. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 07"
+    "tag": "CATALOGUE / 07",
+    "modelImage": "/assets/products/on-model-uf-07.webp"
   },
   {
     "id": "uf-08",
@@ -207,7 +213,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed sizes: 42, 45. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 13"
+    "tag": "CATALOGUE / 13",
+    "modelImage": "/assets/products/on-model-uf-13.webp"
   },
   {
     "id": "uf-14",
@@ -273,7 +280,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 41. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 17"
+    "tag": "CATALOGUE / 17",
+    "modelImage": "/assets/products/on-model-uf-17.webp"
   },
   {
     "id": "uf-18",
@@ -289,7 +297,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 42. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 18"
+    "tag": "CATALOGUE / 18",
+    "modelImage": "/assets/products/on-model-uf-18.webp"
   },
   {
     "id": "uf-19",
@@ -337,7 +346,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 2XL. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 21"
+    "tag": "CATALOGUE / 21",
+    "modelImage": "/assets/products/on-model-uf-21.webp"
   },
   {
     "id": "uf-22",
