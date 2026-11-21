@@ -65,7 +65,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 40. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 04"
+    "tag": "CATALOGUE / 04",
+    "modelImage": "/assets/products/on-model-uf-04.webp"
   },
   {
     "id": "uf-05",
@@ -330,7 +331,8 @@
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 43. Stock and details are subject to confirmation with the seller.",
     "available": true,
     "published": true,
-    "tag": "CATALOGUE / 20"
+    "tag": "CATALOGUE / 20",
+    "modelImage": "/assets/products/on-model-uf-20.webp"
   },
   {
     "id": "uf-21",
