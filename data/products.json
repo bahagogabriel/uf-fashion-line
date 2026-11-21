@@ -49,7 +49,7 @@
     "available": true,
     "published": true,
     "tag": "CATALOGUE / 03",
-    "modelImage": "/assets/products/on-model-uf-03.webp"
+    "modelImage": ""
   },
   {
     "id": "uf-04",
@@ -82,7 +82,7 @@
     "available": true,
     "published": true,
     "tag": "CATALOGUE / 05",
-    "modelImage": "/assets/products/on-model-uf-05.webp"
+    "modelImage": "/assets/products/on-model-uf-03.webp"
   },
   {
     "id": "uf-06",
@@ -99,7 +99,7 @@
     "available": true,
     "published": true,
     "tag": "CATALOGUE / 06",
-    "modelImage": "/assets/products/on-model-uf-06.webp"
+    "modelImage": "/assets/products/on-model-uf-05.webp"
   },
   {
     "id": "uf-07",
