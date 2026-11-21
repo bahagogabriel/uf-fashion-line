@@ -26,3 +26,10 @@
 .pill.sold-out { background: #252321; color: #fff; }
 .stock-status { margin: 18px 0 2px; color: #a83825; font-weight: 800; }
 .dialog-content .btn:disabled { opacity: .55; cursor: not-allowed; filter: grayscale(.3); }
+
+/* Mobile menu always uses dark lettering on its light panel, independent of browser theme. */
+@media (max-width: 760px) {
+  .site-header .primary-nav { color: #1b1b19; background: #f6f3ed; }
+  .site-header .primary-nav a { color: #1b1b19; }
+  .site-header .primary-nav a:hover, .site-header .primary-nav a:focus-visible { color: #a7441b; }
+}
