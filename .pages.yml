@@ -62,11 +62,11 @@ content:
             max: 8
           unique: true
       - name: modelImage
-        label: Styled-on-Model Concept Photo (optional)
+        label: On-Model Photo (optional)
         type: image
         options:
           media: products
-        description: AI-generated pictures are marked as styling concepts on the website.
+        description: Shows the product worn by a model. Keep the original product photograph as the main image.
       - name: sizes
         label: Available Sizes
         type: string
