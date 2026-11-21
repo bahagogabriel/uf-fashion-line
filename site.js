@@ -102,7 +102,7 @@
     const index = view.startsWith('extra-') ? Number(view.slice(6)) : -1;
     const extra = Number.isInteger(index) && index >= 0 ? (product.images.gallery || [])[index] : '';
     $('dialog-main').src = extra || product.images[view] || product.images.product;
-    $('dialog-main').alt = `${view === 'model' ? 'Styled on a Nigerian model (concept)' : (product.concept ? 'Illustrative item view' : 'Product photo')}: ${product.name}`;
+    $('dialog-main').alt = `${view === 'model' ? 'On-model view' : (product.concept ? 'Illustrative item view' : 'Product photo')}: ${product.name}`;
     document.querySelectorAll('[data-view]').forEach(b => { const selected = b.dataset.view === view; b.classList.toggle('is-active', selected); b.setAttribute('aria-pressed',String(selected)); });
   }
   function openProduct(id) {
@@ -110,8 +110,8 @@
     lastFocused = document.activeElement;
     activeProduct = id;
     const extraTabs = (product.images.gallery || []).map((src, index) => `<button type="button" data-view="extra-${index}" aria-pressed="false"><img src="${escapeHTML(src)}" alt=""/> Photo ${index + 2}</button>`).join('');
-    const styledTab = product.images.model ? `<button type="button" data-view="model" aria-pressed="false"><img src="${escapeHTML(product.images.model)}" alt=""/> Styled view${product.modelConcept !== false ? ' (concept)' : ''}</button>` : '';
-    const conceptMessage = product.concept ? `<p class="dialog-concept"><strong>Concept imagery:</strong> This is an illustration, not an authenticated photo of an item in UF Fashion Line's stock.</p>` : (product.images.model && product.modelConcept !== false ? `<p class="dialog-concept"><strong>Styling illustration:</strong> The product view is a merchandise photograph; the model view is an AI styling concept and may differ from the real item.</p>` : '');
+    const styledTab = product.images.model ? `<button type="button" data-view="model" aria-pressed="false"><img src="${escapeHTML(product.images.model)}" alt=""/> On Model</button>` : '';
+    const conceptMessage = product.concept ? `<p class="dialog-concept"><strong>Product note:</strong> Check the item photo and details with the seller before buying.</p>` : '';
     const sizes = product.sizes && product.sizes.length ? escapeHTML(product.sizes.join(', ')) + ' (as listed)' : 'Confirm options with UF Fashion Line';
     $('product-dialog-body').innerHTML = `<div class="dialog-gallery"><img id="dialog-main" class="dialog-main-image" src="${escapeHTML(product.images.product)}" alt="${product.concept ? 'Illustrative item' : 'Product photo'}: ${escapeHTML(product.name)}"/><div class="dialog-tabs" role="group" aria-label="Switch product images"><button type="button" class="is-active" data-view="product" aria-pressed="true"><img src="${escapeHTML(product.images.product)}" alt=""/> Item photo</button>${extraTabs}${styledTab}</div></div><div class="dialog-content"><p class="eyebrow"><span class="line"></span> ${escapeHTML(product.category)} / ${escapeHTML(product.tag || 'PRODUCTS')}</p><h2>${escapeHTML(product.name)}</h2><p class="dialog-price">${formatPrice(product.price)}</p><p class="dialog-description">${escapeHTML(product.description || '')}</p><p class="dialog-size">Sizes & availability <small>${sizes}. Please confirm stock and final price before purchase.</small></p>${conceptMessage}${product.available === false ? '<p class="stock-status" role="status">Currently sold out</p>' : ''}<button id="dialog-add" class="btn btn-orange" type="button" ${product.available === false ? 'disabled aria-disabled="true"' : ''}>${product.available === false ? 'Sold Out' : 'Add to Cart'} <span>↗</span></button></div>`;
     $('dialog-add').addEventListener('click',() => {addToBag(id);$('product-dialog').close();openDrawer();});
