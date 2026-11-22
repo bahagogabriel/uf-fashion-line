@@ -1,6 +1,4 @@
-# UF Fashion Line — product editor (Pages CMS)
-# Sign in to https://app.pagescms.org with a GitHub account that has write
-# access to bahagogabriel/uf-fashion-line. This file controls the editor.
+# UF Fashion Line Pages CMS — grouped editor for the shop owner
 media:
   - name: products
     label: Product Photos
@@ -8,85 +6,302 @@ media:
     output: /assets/products
     rename: random
     extensions: [jpg, jpeg, png, webp]
-
+  - name: site_photos
+    label: Website Photos
+    input: assets/images
+    output: /assets/images
+    rename: random
+    extensions: [jpg, jpeg, png, webp]
 content:
-  - name: products
-    label: Products — UF Fashion Line
-    type: file
-    path: data/products.json
-    format: json
-    list: true
-    fields:
-      - name: id
-        label: Internal ID (leave blank for new products)
-        type: string
-        readonly: true
-        description: Existing product identifiers are protected. New products get a generated ID on the storefront.
-      - name: uid
-        label: Automatic Product ID
-        type: uuid
-        options:
-          editable: false
-        description: Created automatically for new products. No need to edit.
-      - name: name
-        label: Product Name
-        type: string
-        required: true
-        description: Name shown to customers, for example Sports Shorts.
-      - name: category
-        label: Category
-        type: select
-        required: true
-        options:
-          values: [Jerseys, Shorts, Slides, Clogs]
-      - name: price
-        label: Price (NGN — numbers only)
-        type: number
-        required: true
-        options:
-          min: 0
-        description: Enter 7500, not ₦7,500.
-      - name: image
-        label: Main Product Photo
-        type: image
-        required: true
-        options:
-          media: products
-          extensions: [jpg, jpeg, png, webp]
-      - name: gallery
-        label: More Product Photos (optional)
-        type: image
-        options:
-          media: products
-          multiple:
-            max: 8
-          unique: true
-      - name: modelImage
-        label: On-Model Photo (optional)
-        type: image
-        options:
-          media: products
-        description: Shows the product worn by a model. Keep the original product photograph as the main image.
-      - name: sizes
-        label: Available Sizes
-        type: string
+  - name: product_management
+    label: '01 - Products & Stock'
+    type: group
+    items:
+      - name: products
+        label: 'All Products — Prices, Photos & Stock'
+        type: file
+        path: data/products.json
+        format: json
         list: true
-        description: Add sizes one by one, for example 42 or XL.
-      - name: listingColor
-        label: Colour (optional)
-        type: string
-      - name: description
-        label: Product Description
-        type: text
-        description: Keep details accurate; avoid unverified authenticity claims.
-      - name: available
-        label: In Stock? (switch off to show Sold Out)
-        type: boolean
-        default: true
-      - name: published
-        label: Show on Website? (switch off to hide)
-        type: boolean
-        default: true
-      - name: tag
-        label: Small Catalogue Label (optional)
-        type: string
+        operations:
+          delete: false
+        fields:
+          - name: name
+            label: "Product name"
+            type: string
+            description: "What customers see, e.g. Nike Slides."
+            required: true
+          - name: category
+            label: "Category"
+            type: select
+            description: "Choose Jerseys, Shorts, Slides or Clogs."
+            required: true
+            options:
+              values: [Jerseys, Shorts, Slides, Clogs]
+          - name: price
+            label: "Price (₦ — numbers only)"
+            type: number
+            description: "Example 7500, without the naira sign or commas."
+            required: true
+            options:
+              min: 0
+          - name: available
+            label: "In stock?"
+            type: boolean
+            description: "Off = SOLD OUT. Item remains visible but can't be ordered."
+            default: true
+          - name: published
+            label: "Show on website?"
+            type: boolean
+            description: "Off = hidden from customers, but remains in editor."
+            default: true
+          - name: image
+            label: "Main REAL product photo"
+            type: image
+            description: "The original product must always be the primary photo."
+            required: true
+            options:
+              media: products
+              extensions: [jpg, jpeg, png, webp]
+          - name: modelImage
+            label: "On Model lifestyle photo"
+            type: image
+            description: "An optional styled view; leave the real product photo untouched."
+            options:
+              media: products
+              extensions: [jpg, jpeg, png, webp]
+          - name: gallery
+            label: "More REAL product photos"
+            type: image
+            description: "Other real angles, maximum eight."
+            options:
+              media: products
+              extensions: [jpg, jpeg, png, webp]
+              multiple:
+                max: 8
+              unique: true
+          - name: sizes
+            label: "Available sizes"
+            type: string
+            description: "Add sizes individually, e.g. 40, 42, or XL."
+            list: true
+          - name: listingColor
+            label: "Colour (optional)"
+            type: string
+          - name: description
+            label: "Description"
+            type: text
+            description: "Stick to seller-confirmed product details."
+          - name: tag
+            label: "Small catalogue label"
+            type: string
+          - name: id
+            label: "Internal ID (don't edit)"
+            type: string
+            description: "Existing product IDs must stay unchanged."
+            readonly: true
+          - name: uid
+            label: "Automatic ID (don't edit)"
+            type: uuid
+            description: "New products get an automatic ID."
+            options:
+              editable: false
+  - name: website_sections
+    label: '02 - Website Sections'
+    type: group
+    items:
+      - name: homepage
+        label: "Homepage & Shop Intro"
+        type: file
+        path: data/homepage.json
+        format: json
+        operations:
+          delete: false
+        fields:
+          - name: announcement
+            label: "Top bar announcement"
+            type: string
+          - name: heroEyebrow
+            label: "Welcome: small heading"
+            type: string
+          - name: heroFirstLine
+            label: "Welcome: top headline"
+            type: string
+          - name: heroHighlight
+            label: "Welcome: italic headline"
+            type: string
+          - name: heroLastLine
+            label: "Welcome: bottom headline"
+            type: string
+          - name: heroDescription
+            label: "Welcome: introduction"
+            type: text
+          - name: heroPrimaryLabel
+            label: "Main button label"
+            type: string
+          - name: heroSecondaryLabel
+            label: "Second button label"
+            type: string
+          - name: heroDesktopImage
+            label: "Desktop welcome photo (landscape)"
+            type: image
+            options:
+              media: site_photos
+              extensions: [jpg, jpeg, png, webp]
+          - name: heroMobileImage
+            label: "Mobile welcome photo (portrait)"
+            type: image
+            options:
+              media: site_photos
+              extensions: [jpg, jpeg, png, webp]
+          - name: categoryHeading
+            label: "Categories: heading"
+            type: string
+          - name: categoryAccent
+            label: "Categories: italic heading"
+            type: string
+          - name: categoryDescription
+            label: "Categories: description"
+            type: text
+          - name: shopHeading
+            label: "Products: heading"
+            type: string
+          - name: shopAccent
+            label: "Products: italic heading"
+            type: string
+          - name: shopDescription
+            label: "Products: short introduction"
+            type: text
+      - name: about
+        label: "About & Featured Campaign"
+        type: file
+        path: data/about.json
+        format: json
+        operations:
+          delete: false
+        fields:
+          - name: campaignEyebrow
+            label: "Campaign: small heading"
+            type: string
+          - name: campaignHeading
+            label: "Campaign: headline"
+            type: string
+          - name: campaignAccent
+            label: "Campaign: italic headline"
+            type: string
+          - name: campaignDescription
+            label: "Campaign: paragraph"
+            type: text
+          - name: campaignButton
+            label: "Campaign: button text"
+            type: string
+          - name: campaignImage
+            label: "Campaign: photograph"
+            type: image
+            options:
+              media: site_photos
+              extensions: [jpg, jpeg, png, webp]
+          - name: storyEyebrow
+            label: "About: small heading"
+            type: string
+          - name: storyHeading
+            label: "About: heading"
+            type: string
+          - name: storyAccent
+            label: "About: italic heading"
+            type: string
+          - name: storyParagraph1
+            label: "About: first paragraph"
+            type: text
+          - name: storyParagraph2
+            label: "About: second paragraph"
+            type: text
+          - name: storyImage
+            label: "About: photograph"
+            type: image
+            options:
+              media: site_photos
+              extensions: [jpg, jpeg, png, webp]
+      - name: shopping
+        label: "How To Shop Instructions"
+        type: file
+        path: data/shopping.json
+        format: json
+        operations:
+          delete: false
+        fields:
+          - name: stepsEyebrow
+            label: "Section: small heading"
+            type: string
+          - name: stepsHeading
+            label: "Section: headline"
+            type: string
+          - name: stepsAccent
+            label: "Section: italic headline"
+            type: string
+          - name: step1Title
+            label: "Step 1: title"
+            type: string
+          - name: step1Description
+            label: "Step 1: description"
+            type: text
+          - name: step2Title
+            label: "Step 2: title"
+            type: string
+          - name: step2Description
+            label: "Step 2: description"
+            type: text
+          - name: step3Title
+            label: "Step 3: title"
+            type: string
+          - name: step3Description
+            label: "Step 3: description"
+            type: text
+  - name: contact_settings
+    label: '03 - Store & Contact'
+    type: group
+    items:
+      - name: contact
+        label: "WhatsApp, Instagram & Contact"
+        type: file
+        path: data/contact.json
+        format: json
+        operations:
+          delete: false
+        fields:
+          - name: whatsappNumber
+            label: "WhatsApp number (with 234 prefix)"
+            type: string
+            description: "Example: 2348132146287. Do not use + or a leading zero. Controls where cart orders go."
+          - name: whatsappDisplay
+            label: "WhatsApp number customers see"
+            type: string
+            description: "Example: +234 813 214 6287."
+          - name: instagramUrl
+            label: "Instagram profile URL (optional)"
+            type: string
+            description: "Paste the full https://www.instagram.com/... address."
+          - name: contactEyebrow
+            label: "Contact: small heading"
+            type: string
+          - name: contactHeading
+            label: "Contact: main heading"
+            type: string
+          - name: contactAccent
+            label: "Contact: italic heading"
+            type: string
+          - name: contactDescription
+            label: "Contact: description"
+            type: text
+          - name: footerTagline
+            label: "Footer tagline"
+            type: string
+          - name: cartNotice
+            label: "Shopping cart: no-payment notice"
+            type: text
+          - name: checkoutHint
+            label: "Shopping cart: WhatsApp reminder"
+            type: text
+settings:
+  content:
+    merge: true
