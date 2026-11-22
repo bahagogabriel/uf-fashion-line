@@ -37,13 +37,13 @@
     bag = bag.filter(item => {const product = findProduct(item.id);return product && product.available !== false;});
     try { localStorage.setItem('uf-fashion-enquiry-bag', JSON.stringify(bag)); } catch (_) {}
   }
-  const config = window.UF_CONFIG || {};
+  const config = {...(window.UF_CONFIG || {})};
   const $ = (id) => document.getElementById(id);
   const escapeHTML = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const formatPrice = (p) => typeof p === 'number' && p >= 0 ? '₦' + new Intl.NumberFormat('en-NG').format(p) : 'Ask for price';
   const findProduct = (id) => products.find((p) => p.id === id);
-  const safePhone = String(config.whatsappNumber || '').replace(/\D/g, '');
-  const hasWhatsApp = /^\d{10,15}$/.test(safePhone);
+  let safePhone = String(config.whatsappNumber || '').replace(/\D/g, '');
+  let hasWhatsApp = /^\d{10,15}$/.test(safePhone);
   let selected = 'All';
   let query = '';
   let bag = [];
@@ -143,6 +143,28 @@
     if (await copy(text)) toast('Cart items copied. Paste them into WhatsApp.');
     else window.prompt('Copy your cart details:',text);
   }
+  // Load business settings edited in Pages CMS. If unavailable, keep original trusted details.
+  async function loadBusinessSettings() {
+    try {
+      const result = await fetch('data/contact.json', {cache:'no-store'});
+      if (!result.ok) throw Error('Contact settings unavailable');
+      const details = await result.json();
+      const candidate = String(details.whatsappNumber || '').replace(/\D/g,'');
+      if (/^234\d{10}$/.test(candidate)) {
+        config.whatsappNumber = candidate;
+        config.whatsappDisplay = String(details.whatsappDisplay || '+' + candidate).trim();
+      }
+      const instagram = String(details.instagramUrl || '').trim();
+      if (!instagram) config.instagramUrl = '';
+      else {
+        const url = new URL(instagram);
+        if (url.protocol === 'https:' && /(^|\.)instagram\.com$/i.test(url.hostname)) config.instagramUrl = url.href;
+      }
+    } catch (err) { console.warn('Keeping verified UF contact details:', err); }
+    safePhone = String(config.whatsappNumber || '').replace(/\D/g,'');
+    hasWhatsApp = /^\d{10,15}$/.test(safePhone);
+  }
+
   function initContact() {
     $('contact-hint').textContent = hasWhatsApp ? `WhatsApp: ${config.whatsappDisplay || '+'+safePhone}. Ask about stock, prices and sizes.` : 'WhatsApp contact will be activated once the verified business number is added.';
     if (hasWhatsApp) $('contact-action').innerHTML = 'Message on WhatsApp <span>↗</span>';
@@ -155,16 +177,13 @@
     if (/^https:\/\//.test(config.instagramUrl || '')) { $('instagram-link').href = config.instagramUrl; $('instagram-link').textContent = 'Instagram ↗'; $('instagram-link').target='_blank'; $('instagram-link').rel='noopener noreferrer'; }
   }
   async function init() {
-    await loadCatalogue();
+    await Promise.all([loadCatalogue(), loadBusinessSettings()]);
     $('year').textContent = new Date().getFullYear();
     const verified = products.filter(p => !p.concept);
-    const intro = $('shop-intro');
     const notice = $('concept-notice');
     if (verified.length && verified.length === products.length) {
-      if (intro) intro.textContent = `Browse ${products.length} products with photos and listed prices. Add to cart and confirm stock on WhatsApp.`;
       if (notice) notice.hidden = false;
     } else if (verified.length) {
-      if (intro) intro.textContent = 'Shop real products alongside clearly labelled styling concepts.';
       if (notice) notice.querySelector('p').innerHTML = '<strong>Styling concepts:</strong> Some images are illustrative, and are labelled as such. Confirm sizes, stock and final prices before ordering.';
     }
     const filters = $('filter-list');
