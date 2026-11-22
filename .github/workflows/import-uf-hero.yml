@@ -1,0 +1,39 @@
+name: One-time UF Fashion Line hero photo import
+on:
+  push:
+    paths:
+      - '.github/workflows/import-uf-hero.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download approved shop-owner photos
+        env:
+          DESKTOP_URL: 'https://media.canva.com/v2/image-resize/format:JPG/height:941/quality:75/uri:ifs%3A%2F%2FM%2Fc6e40313-402a-488e-8aba-f6f8a9ec4962/watermark:F/width:1672?csig=AAAAAAAAAAAAAAAAAAAAALpHgzMUcDjupwcJJa_-XvU0TZFLmra6gatnQM9j6pQ8&exp=1795380110&osig=AAAAAAAAAAAAAAAAAAAAAGRXTb7cK22PMSPgHuOZUEudyYT4KgeF2flJZdAphZQJ&signer=media-rpc&token=AAIAAU0AJGM2ZTQwMzEzLTQwMmEtNDg4ZS04YWJhLWY2ZjhhOWVjNDk2MgAAAAABogT-YrD7ivb4fO8vdqw54QIQd5eO5kVZyptWbaa8M3Tv1muT6g&x-canva-quality=default'
+          MOBILE_URL: 'https://media.canva.com/v2/image-resize/format:JPG/height:1440/quality:75/uri:ifs%3A%2F%2FM%2F24a3d680-1712-4057-92a7-642d4c5e4b91/watermark:F/width:810?csig=AAAAAAAAAAAAAAAAAAAAAM0r4PLG-7v-kbg5Q36d-b6bTG64PoqnY7MwJ1EPWfd1&exp=1795378993&osig=AAAAAAAAAAAAAAAAAAAAAEizCLW2scQqgSxssTEtUzdvSRRtsg0Y9cJ2F4v1GIpp&signer=media-rpc&token=AAIAAU0AJDI0YTNkNjgwLTE3MTItNDA1Ny05MmE3LTY0MmQ0YzVlNGI5MQAAAAABogTtV2hZH3UbfLyfYYGlhAf2od6rFiIZAtFp4hhIYOZAd3L7kA&x-canva-quality=default'
+        run: |
+          set -eu
+          curl -fL --retry 2 --max-time 40 "$DESKTOP_URL" -o /tmp/uf-desktop.jpg
+          curl -fL --retry 2 --max-time 40 "$MOBILE_URL" -o /tmp/uf-mobile.jpg
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          for fn,dest,minwidth in [
+            ('/tmp/uf-desktop.jpg','assets/images/shop-owner-desktop.webp',1000),
+            ('/tmp/uf-mobile.jpg','assets/images/shop-owner-mobile.webp',640)]:
+              im=Image.open(fn).convert('RGB')
+              print(dest,im.size,im.format)
+              assert im.width >= minwidth, 'Source photo was not delivered at useful resolution'
+              im.save(dest,'WEBP',quality=78,method=6)
+          PY
+      - name: Commit approved hero images
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/images/shop-owner-desktop.webp assets/images/shop-owner-mobile.webp
+          git diff --staged --quiet || (git commit -m 'Add authentic UF Fashion Line shop owner hero photos' && git push)
