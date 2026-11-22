@@ -58,4 +58,4 @@
 
 /* Pages CMS editable link labels keep the store's existing button typography. */
 .btn .cms-button-label { font-size:12px; font-weight:800; }
-.text-link .cms-link-label { font-size:inherit; font-weight:inherit; }
+.text-link .cms-link-label { font-size:inherit; font-weight:inherit; color:inherit; }
