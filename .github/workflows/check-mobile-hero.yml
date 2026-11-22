@@ -1,0 +1,33 @@
+name: Check mobile hero overlay deployment
+on:
+  push:
+    paths:
+      - '.github/workflows/check-mobile-hero.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify responsive mobile overlay CSS and live assets
+        run: |
+          set -euo pipefail
+          grep -Fq 'Restore the original layered mobile welcome design' styles.css
+          grep -Fq '.hero.shop-owner-hero .hero-shade' styles.css
+          grep -Fq 'height:100%;' styles.css
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            echo "Checking live mobile styles, attempt $attempt"
+            if curl -fsSL --connect-timeout 10 --max-time 25 "https://uf-fashion-line-ng.pages.dev/styles.css?overlay-check=$attempt" -o /tmp/site.css \
+              && grep -Fq 'Restore the original layered mobile welcome design' /tmp/site.css \
+              && curl -fsSL --max-time 25 "https://uf-fashion-line-ng.pages.dev/assets/images/shop-owner-mobile.webp" -o /tmp/mobile.webp \
+              && curl -fsSL --max-time 25 "https://uf-fashion-line-ng.pages.dev/hero.js" -o /tmp/hero.js \
+              && grep -Fq "hero.classList.add('shop-owner-hero')" /tmp/hero.js; then
+                echo 'MOBILE OVERLAY DEPLOYMENT PASS: new CSS and shop-owner photo are live'
+                exit 0
+            fi
+            sleep 8
+          done
+          echo 'Mobile overlay not yet live'
+          exit 1
