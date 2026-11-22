@@ -38,7 +38,7 @@
 /* Shop-owner homepage image. The original hero remains in place until both
    verified shop-owner assets have been uploaded to assets/images/. */
 .hero-media { position:absolute; inset:0; display:block; width:100%; height:100%; z-index:-2; overflow:hidden; }
-.hero-media .hero-photo { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+.hero-media .hero-photo { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; z-index:auto; }
 .hero.shop-owner-hero .hero-photo { object-position:center center; }
 .hero.shop-owner-hero .hero-shade {
   background:linear-gradient(90deg,rgba(14,13,12,.94),rgba(14,13,12,.65) 34%,rgba(14,13,12,.2) 59%,transparent 78%);
@@ -52,6 +52,6 @@
   .hero.shop-owner-hero .hero-shade { display:none; }
   .hero.shop-owner-hero .hero-inner { position:relative; z-index:1; height:auto; align-items:flex-start; }
   .hero.shop-owner-hero .hero-copy { padding:35px 0 44px; max-width:100%; }
-  .hero.shop-owner-hero .hero h1 { margin-top:18px; }
+  .hero.shop-owner-hero h1 { margin-top:18px; }
   .hero.shop-owner-hero .hero-index { margin-top:32px; }
 }
