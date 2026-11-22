@@ -1,28 +1,38 @@
-/* UF Fashion Line: progressive homepage photo switch.
-   The original hero stays visible until BOTH approved shop photos are in GitHub.
-   Product data, cart, checkout and Pages CMS are deliberately untouched. */
+/* UF homepage images can be updated from Pages CMS. Keep existing image if a replacement fails. */
 (() => {
   const hero = document.getElementById('home');
   const photo = document.getElementById('hero-photo');
   const mobile = document.getElementById('hero-mobile-source');
   if (!hero || !photo || !mobile) return;
-
-  const desktopPath = 'assets/images/shop-owner-desktop.webp';
-  const mobilePath = 'assets/images/shop-owner-mobile.webp';
-  function check(path) {
-    return new Promise((resolve) => {
-      const probe = new Image();
-      probe.onload = () => resolve(true);
-      probe.onerror = () => resolve(false);
-      probe.src = path;
+  function safeImage(value, fallback) {
+    const path = String(value || '').trim().replace(/^\/+/, '');
+    return /^assets\/images\/[a-zA-Z0-9._/-]+\.(?:jpe?g|png|webp)$/i.test(path) && !path.includes('..') ? path : fallback;
+  }
+  function exists(src) {
+    return new Promise(resolve => {
+      const image = new Image();
+      image.onload = () => resolve(true);
+      image.onerror = () => resolve(false);
+      image.src = src;
     });
   }
-
-  Promise.all([check(desktopPath), check(mobilePath)]).then(([desktopReady, mobileReady]) => {
-    if (!desktopReady || !mobileReady) return;
-    mobile.setAttribute('srcset', mobilePath);
-    photo.src = desktopPath;
-    photo.alt = 'UF Fashion Line shop owner standing inside the real shop, with football jerseys and footwear on display';
+  async function init() {
+    let desktop = 'assets/images/shop-owner-desktop.webp';
+    let phone = 'assets/images/shop-owner-mobile.webp';
+    try {
+      const response = await fetch('data/homepage.json', {cache:'no-store'});
+      if (response.ok) {
+        const content = await response.json();
+        desktop = safeImage(content.heroDesktopImage,desktop);
+        phone = safeImage(content.heroMobileImage,phone);
+      }
+    } catch (_) {}
+    const [desktopOK,phoneOK] = await Promise.all([exists(desktop),exists(phone)]);
+    if (!desktopOK || !phoneOK) return;
+    mobile.srcset = phone;
+    photo.src = desktop;
+    photo.alt = 'UF Fashion Line real shop interior with footwear, football jerseys and owner';
     hero.classList.add('shop-owner-hero');
-  }).catch(() => {});
+  }
+  init().catch(() => {});
 })();
