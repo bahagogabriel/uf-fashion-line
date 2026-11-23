@@ -423,5 +423,48 @@
       "3xl"
     ],
     "uid": "fe2f86af-1cee-4b28-8915-4024d9b97131"
+  },
+  {
+    "name": "Savila",
+    "category": "Jerseys",
+    "price": 5000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtg65sx-uv5gamsv.jpg",
+    "gallery": [
+      "/assets/products/mwtg7tx4-thdr53eh.jpg"
+    ],
+    "sizes": [
+      "Xl"
+    ],
+    "description": "U.F fashion jersey white colour ",
+    "uid": "04280ac2-b018-4e53-b965-0a21b7e81080"
+  },
+  {
+    "name": "Puma",
+    "category": "Jerseys",
+    "price": 5000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtganbl-az7h0mkg.jpg",
+    "gallery": [
+      "/assets/products/mwtgbuku-spgp3tin.jpg"
+    ],
+    "sizes": [
+      "2xl"
+    ],
+    "uid": "a43fc6ac-37bc-4e34-b936-ba5d8d0d507a"
+  },
+  {
+    "name": "Nike",
+    "category": "Jerseys",
+    "price": 5000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgehgc-px066omx.jpg",
+    "gallery": [
+      "/assets/products/mwtgfjzc-jt62olqc.jpg"
+    ],
+    "uid": "38297c91-643c-4e75-a83f-9d1259f8d090"
   }
 ]
