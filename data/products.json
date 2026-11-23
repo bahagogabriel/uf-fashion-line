@@ -408,5 +408,20 @@
     "description": "Uf fashion line jersey ",
     "tag": "U.f ",
     "uid": "7df739e4-ac92-4b19-bc5c-e158393d55f3"
+  },
+  {
+    "name": "Moore",
+    "category": "Jerseys",
+    "price": 10000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwt1kclq-tjesrhf0.jpg",
+    "gallery": [
+      "/assets/products/mwt1joy9-d4qj20rq.jpg"
+    ],
+    "sizes": [
+      "3xl"
+    ],
+    "uid": "fe2f86af-1cee-4b28-8915-4024d9b97131"
   }
 ]
