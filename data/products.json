@@ -490,5 +490,41 @@
       "/assets/products/mwtgnrtj-sscjhl6f.jpg"
     ],
     "uid": "d23c83f6-eb6f-4d90-8e49-9ff803617938"
+  },
+  {
+    "name": "Addidas ",
+    "category": "Slides",
+    "price": 8500,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgsd8e-iyufpt6t.jpg",
+    "gallery": [
+      "/assets/products/mwtgt90x-q9ea0c18.jpg"
+    ],
+    "uid": "c615c5b9-3d42-4aaf-a546-b6abebd477d3"
+  },
+  {
+    "name": "Nike",
+    "category": "Slides",
+    "price": 7000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgupr9-ttlfohe9.jpg",
+    "gallery": [
+      "/assets/products/mwtgvdty-qu0tl8q1.jpg"
+    ],
+    "uid": "7bef5a3d-fa6a-45da-9af9-6042f4d6e980"
+  },
+  {
+    "name": "Gucci",
+    "category": "Slides",
+    "price": 8000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgxhdw-e9647l52.jpg",
+    "gallery": [
+      "/assets/products/mwtgy4pd-d7axaynb.jpg"
+    ],
+    "uid": "8cc1a8dc-ba29-49bd-befb-8dbd198bd45c"
   }
 ]
