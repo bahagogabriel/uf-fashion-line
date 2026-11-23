@@ -1,6 +1,6 @@
 # UF Fashion Line — storefront catalogue (Build 1)
 
-A lightweight static storefront for a Nigerian fashion retailer, built from 22 product screenshots dated 20 November 2026. No npm dependencies, backend, or payment processing.
+A lightweight static storefront for a Nigerian fashion wholesaler and a retailer, built from 22 product screenshots dated 20 November 2026. No npm dependencies, backend, or payment processing.
 
 ## Contents
 - `index.html`, `styles.css`, `site.js`: responsive storefront, searchable products, filtering, product-details dialog and shopping cart.
