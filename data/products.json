@@ -390,5 +390,23 @@
       "3xl"
     ],
     "uid": "599900f4-9e0e-4224-87be-baa0eb2a3c52"
+  },
+  {
+    "name": "Chelsea ",
+    "category": "Jerseys",
+    "price": 10000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwt1b1d2-8jogwxdm.jpg",
+    "gallery": [
+      "/assets/products/mwt1aco8-uyjl16xh.jpg"
+    ],
+    "sizes": [
+      "3xl"
+    ],
+    "listingColor": "Blue",
+    "description": "Uf fashion line jersey ",
+    "tag": "U.f ",
+    "uid": "7df739e4-ac92-4b19-bc5c-e158393d55f3"
   }
 ]
