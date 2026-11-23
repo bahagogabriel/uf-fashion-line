@@ -1,380 +1,380 @@
 [
   {
-    "id": "uf-01",
-    "uid": "f0b3971a-b7e9-49b1-8051-38b4664f75ff",
     "name": "Original Crocs",
     "category": "Clogs",
-    "price": 11500,
+    "price": 12000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-01.webp",
+    "modelImage": "/assets/products/on-model-uf-01.webp",
     "sizes": [
       "41",
       "45"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed sizes: 41, 45. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 01",
-    "modelImage": "/assets/products/on-model-uf-01.webp"
+    "id": "uf-01",
+    "uid": "f0b3971a-b7e9-49b1-8051-38b4664f75ff"
   },
   {
-    "id": "uf-02",
-    "uid": "a44c62ee-e5af-40ea-859e-5e38c72f1344",
     "name": "Versage",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-02.webp",
+    "modelImage": "/assets/products/on-model-uf-02.webp",
     "sizes": [
       "45"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 45. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 02",
-    "modelImage": "/assets/products/on-model-uf-02.webp"
+    "id": "uf-02",
+    "uid": "a44c62ee-e5af-40ea-859e-5e38c72f1344"
   },
   {
-    "id": "uf-03",
-    "uid": "17713198-2b22-45c0-bd14-2412fca8c21a",
     "name": "Nike",
     "category": "Slides",
     "price": 9000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-03.webp",
+    "modelImage": "/assets/products/model-2026-uf-03.webp",
     "sizes": [
       "45"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 45. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 03",
-    "modelImage": "/assets/products/model-2026-uf-03.webp"
+    "id": "uf-03",
+    "uid": "17713198-2b22-45c0-bd14-2412fca8c21a"
   },
   {
-    "id": "uf-04",
-    "uid": "a308cd23-4484-4a71-969d-8333977495fd",
     "name": "Valentino",
     "category": "Slides",
     "price": 7200,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-04.webp",
+    "modelImage": "/assets/products/on-model-uf-04.webp",
     "sizes": [
       "40"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 40. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 04",
-    "modelImage": "/assets/products/on-model-uf-04.webp"
+    "id": "uf-04",
+    "uid": "a308cd23-4484-4a71-969d-8333977495fd"
   },
   {
-    "id": "uf-05",
-    "uid": "933f6959-6eba-456a-bddb-7dc8cb4e475a",
     "name": "Pedro",
     "category": "Slides",
     "price": 15000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-05.webp",
+    "modelImage": "/assets/products/on-model-uf-03.webp",
     "sizes": [
       "42"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 42. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 05",
-    "modelImage": "/assets/products/on-model-uf-03.webp"
+    "id": "uf-05",
+    "uid": "933f6959-6eba-456a-bddb-7dc8cb4e475a"
   },
   {
-    "id": "uf-06",
-    "uid": "36093a13-fce1-427d-8767-2426240c898f",
     "name": "Dior",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-06.webp",
+    "modelImage": "/assets/products/on-model-uf-05.webp",
     "sizes": [
       "41"
     ],
     "listingColor": "Black and white",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black and white. Listed size: 41. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 06",
-    "modelImage": "/assets/products/on-model-uf-05.webp"
+    "id": "uf-06",
+    "uid": "36093a13-fce1-427d-8767-2426240c898f"
   },
   {
-    "id": "uf-07",
-    "uid": "5f47bba6-d4f1-427b-9f53-e00ce4e17823",
     "name": "Dortmund",
     "category": "Jerseys",
     "price": 4500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-07.webp",
+    "modelImage": "/assets/products/on-model-uf-07.webp",
     "sizes": [
       "2XL"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 2XL. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 07",
-    "modelImage": "/assets/products/on-model-uf-07.webp"
+    "id": "uf-07",
+    "uid": "5f47bba6-d4f1-427b-9f53-e00ce4e17823"
   },
   {
-    "id": "uf-08",
-    "uid": "7030d01a-aecb-4bab-a7b3-b9889dad407e",
     "name": "Tommy",
     "category": "Slides",
     "price": 6000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-08.webp",
+    "modelImage": "/assets/products/model-2026-uf-08.webp",
     "sizes": [
       "45"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed size: 45. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 08",
-    "modelImage": "/assets/products/model-2026-uf-08.webp"
+    "id": "uf-08",
+    "uid": "7030d01a-aecb-4bab-a7b3-b9889dad407e"
   },
   {
-    "id": "uf-09",
-    "uid": "92798830-82e3-4251-83ef-d42354f0b78b",
     "name": "Kito",
     "category": "Slides",
     "price": 8000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-09.webp",
+    "modelImage": "/assets/products/model-2026-uf-09.webp",
     "sizes": [
       "44"
     ],
     "listingColor": "Brown",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Brown. Listed size: 44. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 09",
-    "modelImage": "/assets/products/model-2026-uf-09.webp"
+    "id": "uf-09",
+    "uid": "92798830-82e3-4251-83ef-d42354f0b78b"
   },
   {
-    "id": "uf-10",
-    "uid": "9c2fec70-b547-4a5b-83f0-f451001cd548",
     "name": "Paper Nike",
     "category": "Slides",
     "price": 6000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-10.webp",
+    "modelImage": "/assets/products/model-2026-uf-10.webp",
     "sizes": [
       "44"
     ],
     "listingColor": "Pure black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Pure black. Listed size: 44. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 10",
-    "modelImage": "/assets/products/model-2026-uf-10.webp"
+    "id": "uf-10",
+    "uid": "9c2fec70-b547-4a5b-83f0-f451001cd548"
   },
   {
-    "id": "uf-11",
-    "uid": "5c62702c-ddbb-484e-be59-9162cdf79ecf",
     "name": "Hermes",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-11.webp",
+    "modelImage": "/assets/products/model-2026-uf-11.webp",
     "sizes": [
       "44"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 44. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 11",
-    "modelImage": "/assets/products/model-2026-uf-11.webp"
+    "id": "uf-11",
+    "uid": "5c62702c-ddbb-484e-be59-9162cdf79ecf"
   },
   {
-    "id": "uf-12",
-    "uid": "a0cc6407-bce5-4f89-a8f6-5ec8f7677c15",
     "name": "Givenchy",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-12.webp",
+    "modelImage": "/assets/products/model-2026-uf-12.webp",
     "sizes": [
       "40"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 40. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 12",
-    "modelImage": "/assets/products/model-2026-uf-12.webp"
+    "id": "uf-12",
+    "uid": "a0cc6407-bce5-4f89-a8f6-5ec8f7677c15"
   },
   {
-    "id": "uf-13",
-    "uid": "33e6d755-5cb6-403b-8061-386f2eef8560",
     "name": "Original Addidas",
     "category": "Slides",
     "price": 8500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-13.webp",
+    "modelImage": "/assets/products/on-model-uf-13.webp",
     "sizes": [
       "42",
       "45"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed sizes: 42, 45. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 13",
-    "modelImage": "/assets/products/on-model-uf-13.webp"
+    "id": "uf-13",
+    "uid": "33e6d755-5cb6-403b-8061-386f2eef8560"
   },
   {
-    "id": "uf-14",
-    "uid": "fb4a2820-eff9-404e-810e-10f0ead7ddbc",
     "name": "Diesel",
     "category": "Slides",
     "price": 6500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-14.webp",
+    "modelImage": "/assets/products/model-2026-uf-14.webp",
     "sizes": [
       "41",
       "44"
     ],
     "listingColor": "Black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Black. Listed sizes: 41, 44. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 14",
-    "modelImage": "/assets/products/model-2026-uf-14.webp"
+    "id": "uf-14",
+    "uid": "fb4a2820-eff9-404e-810e-10f0ead7ddbc"
   },
   {
-    "id": "uf-15",
-    "uid": "41dd2ed5-1efa-4e88-a94a-7406b6556c24",
     "name": "Amiri",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-15.webp",
+    "modelImage": "/assets/products/model-2026-uf-15.webp",
     "sizes": [
       "40",
       "41"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed sizes: 40, 41. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 15",
-    "modelImage": "/assets/products/model-2026-uf-15.webp"
+    "id": "uf-15",
+    "uid": "41dd2ed5-1efa-4e88-a94a-7406b6556c24"
   },
   {
-    "id": "uf-16",
-    "uid": "8db9dac9-92b8-44b2-b78e-0a27bd65b198",
     "name": "Nike stock",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-16.webp",
+    "modelImage": "/assets/products/model-2026-uf-16.webp",
     "sizes": [
       "40"
     ],
     "listingColor": "Pure black",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed colour: Pure black. Listed size: 40. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 16",
-    "modelImage": "/assets/products/model-2026-uf-16.webp"
+    "id": "uf-16",
+    "uid": "8db9dac9-92b8-44b2-b78e-0a27bd65b198"
   },
   {
-    "id": "uf-17",
-    "uid": "8c825b32-6b88-410b-b42d-1af83c7f78ff",
     "name": "Gucci",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-17.webp",
+    "modelImage": "/assets/products/on-model-uf-17.webp",
     "sizes": [
       "41"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 41. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 17",
-    "modelImage": "/assets/products/on-model-uf-17.webp"
+    "id": "uf-17",
+    "uid": "8c825b32-6b88-410b-b42d-1af83c7f78ff"
   },
   {
-    "id": "uf-18",
-    "uid": "7f38a51b-30d7-42e3-b1a0-e8c3813fb008",
     "name": "Gucci",
     "category": "Slides",
     "price": 8000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-18.webp",
+    "modelImage": "/assets/products/on-model-uf-18.webp",
     "sizes": [
       "42"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 42. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 18",
-    "modelImage": "/assets/products/on-model-uf-18.webp"
+    "id": "uf-18",
+    "uid": "7f38a51b-30d7-42e3-b1a0-e8c3813fb008"
   },
   {
-    "id": "uf-19",
-    "uid": "604b3b52-ec5b-41f1-b07b-5340464cdd18",
     "name": "Original product",
     "category": "Slides",
     "price": 8000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-19.webp",
+    "modelImage": "/assets/products/model-2026-uf-19.webp",
     "sizes": [
       "40"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 40. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 19",
-    "modelImage": "/assets/products/model-2026-uf-19.webp"
+    "id": "uf-19",
+    "uid": "604b3b52-ec5b-41f1-b07b-5340464cdd18"
   },
   {
-    "id": "uf-20",
-    "uid": "5baf8b43-a279-4ad9-86d3-6c3685e585d7",
     "name": "Dior",
     "category": "Slides",
     "price": 7500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-20.webp",
+    "modelImage": "/assets/products/on-model-uf-20.webp",
     "sizes": [
       "43"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 43. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 20",
-    "modelImage": "/assets/products/on-model-uf-20.webp"
+    "id": "uf-20",
+    "uid": "5baf8b43-a279-4ad9-86d3-6c3685e585d7"
   },
   {
-    "id": "uf-21",
-    "uid": "99e3b8ad-d329-4478-ac11-088fd1ee63a1",
     "name": "Sfc",
     "category": "Jerseys",
     "price": 5500,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-21.webp",
+    "modelImage": "/assets/products/on-model-uf-21.webp",
     "sizes": [
       "2XL"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 2XL. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 21",
-    "modelImage": "/assets/products/on-model-uf-21.webp"
+    "id": "uf-21",
+    "uid": "99e3b8ad-d329-4478-ac11-088fd1ee63a1"
   },
   {
-    "id": "uf-22",
-    "uid": "fc06e58b-5681-4801-96ed-8a27c308c7ed",
     "name": "Nike",
     "category": "Shorts",
     "price": 5000,
+    "available": true,
+    "published": true,
     "image": "/assets/products/item-22.webp",
+    "modelImage": "/assets/products/on-model-uf-22.webp",
     "sizes": [
       "3XL"
     ],
     "listingColor": "Not specified",
     "description": "From the UF Fashion Line catalogue screenshots (20 Nov 2026). Listed size: 3XL. Stock and details are subject to confirmation with the seller.",
-    "available": true,
-    "published": true,
     "tag": "CATALOGUE / 22",
-    "modelImage": "/assets/products/on-model-uf-22.webp"
+    "id": "uf-22",
+    "uid": "fc06e58b-5681-4801-96ed-8a27c308c7ed"
   }
 ]
