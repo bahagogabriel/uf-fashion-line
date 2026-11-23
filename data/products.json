@@ -375,5 +375,20 @@
     "tag": "CATALOGUE / 22",
     "id": "uf-22",
     "uid": "fc06e58b-5681-4801-96ed-8a27c308c7ed"
+  },
+  {
+    "name": "Real Madrid ",
+    "category": "Jerseys",
+    "price": 10000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwt151yc-rbwqrp1s.jpg",
+    "gallery": [
+      "/assets/products/mwt12s48-hwwirun6.jpg"
+    ],
+    "sizes": [
+      "3xl"
+    ],
+    "uid": "599900f4-9e0e-4224-87be-baa0eb2a3c52"
   }
 ]
