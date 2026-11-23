@@ -466,5 +466,29 @@
       "/assets/products/mwtgfjzc-jt62olqc.jpg"
     ],
     "uid": "38297c91-643c-4e75-a83f-9d1259f8d090"
+  },
+  {
+    "name": "Wasons",
+    "category": "Slides",
+    "price": 7000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgjru2-oxse0w1b.jpg",
+    "gallery": [
+      "/assets/products/mwtgk5cf-62qjeivp.jpg"
+    ],
+    "uid": "ddb590b1-c5b5-4c17-9cc2-32631db73c1c"
+  },
+  {
+    "name": "Versage",
+    "category": "Slides",
+    "price": 8000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mwtgmn6l-u14zr3l5.jpg",
+    "gallery": [
+      "/assets/products/mwtgnrtj-sscjhl6f.jpg"
+    ],
+    "uid": "d23c83f6-eb6f-4d90-8e49-9ff803617938"
   }
 ]
