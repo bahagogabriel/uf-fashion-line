@@ -559,5 +559,78 @@
     ],
     "description": "Original shot ",
     "uid": "eb1a724f-d466-4fd9-a5e3-449f2fcefd18"
+  },
+  {
+    "name": "Addidas",
+    "category": "Jerseys",
+    "price": 9000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww3eth0-2dvppg5j.jpg",
+    "gallery": [
+      "/assets/products/mww3f703-mkr6sfnl.jpg"
+    ],
+    "sizes": [
+      "2xl"
+    ],
+    "listingColor": "Black ",
+    "description": "Black arsenal jersey from uf fashion line store",
+    "uid": "5e420752-781a-45ab-9fa3-ce908f19cc9a"
+  },
+  {
+    "name": "Addidas ",
+    "category": "Jerseys",
+    "price": 9000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww3i16v-mn3qo9tc.jpg",
+    "gallery": [
+      "/assets/products/mww3icdf-cl0xrqok.jpg"
+    ],
+    "sizes": [
+      "Xl"
+    ],
+    "description": "Arsenal jersey from uf fashion line store",
+    "uid": "5f76c2d7-9129-490e-b86d-29ec564b1c50"
+  },
+  {
+    "name": "Nike",
+    "category": "Jerseys",
+    "price": 8000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww3k0sj-lby3i6il.jpg",
+    "gallery": [
+      "/assets/products/mww3kt0q-0610o6s6.jpg"
+    ],
+    "uid": "6d7652cd-a185-43b2-ba95-904d54cd76d7"
+  },
+  {
+    "name": "4",
+    "category": "Jerseys",
+    "price": 10000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww3m4ey-b331yza3.jpg",
+    "sizes": [
+      "2xl"
+    ],
+    "description": "Quality shirt from uf fashion line store",
+    "uid": "bbd74ba3-72bd-4092-b7fe-3723bf43b446"
+  },
+  {
+    "name": "Quality ",
+    "category": "Slides",
+    "price": 8000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww3pc41-ve35ji1k.jpg",
+    "gallery": [
+      "/assets/products/mww3pn5p-idgdvizn.jpg"
+    ],
+    "sizes": [
+      "40,41,43"
+    ],
+    "uid": "123a491f-affe-4b12-8d73-c0171af8198b"
   }
 ]
