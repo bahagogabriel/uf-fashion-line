@@ -526,5 +526,38 @@
       "/assets/products/mwtgy4pd-d7axaynb.jpg"
     ],
     "uid": "8cc1a8dc-ba29-49bd-befb-8dbd198bd45c"
+  },
+  {
+    "name": "Nike",
+    "category": "Jerseys",
+    "price": 9000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww23z4r-s339ynf7.jpg",
+    "gallery": [
+      "/assets/products/mww24dt3-34ryho3i.jpg"
+    ],
+    "sizes": [
+      "2xl"
+    ],
+    "listingColor": "White and green ",
+    "description": "Original Nigeria jersey ",
+    "uid": "a6cecee8-5703-42bf-a12b-950c5ed4b135"
+  },
+  {
+    "name": "Supreme ",
+    "category": "Shorts",
+    "price": 10000,
+    "available": true,
+    "published": true,
+    "image": "/assets/products/mww26v23-5xo57fh1.jpg",
+    "gallery": [
+      "/assets/products/mww273lb-yog8ruta.jpg"
+    ],
+    "sizes": [
+      "1xl"
+    ],
+    "description": "Original shot ",
+    "uid": "eb1a724f-d466-4fd9-a5e3-449f2fcefd18"
   }
 ]
